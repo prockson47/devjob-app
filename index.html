@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEVJOB APP</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="./assets/favicon-32x32.png">
+</head>
+
+
+
+<body class="body">
+  <header class="heading-class">
+    <h1 class="h1-jobs">devjobs
+    </h1>
+    <div class="switch-button">
+      <img src="./assets/desktop/icon-sun.svg" alt="light theme" class="sun">
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+      <img src="./assets/desktop/icon-moon.svg" alt="dark theme" class="moon">
+    </div>
+
+
+  </header>
+
+  <!-- fiilter -->
+  <div class="filtering">
+
+    <div class="filter">
+      <div class="filter-row">
+        <div class="filter-icon"><img src="./assets/desktop/icon-search.svg"></div>
+        <input type="text" class="filter-input" placeholder="Filter by title, companies, expertise...">
+      </div>
+      <div class="filter-row">
+        <div class="filter-icon"><img src="./assets/desktop/icon-location.svg"></div>
+        <input type="text" class="filter-input" placeholder="Filter by location">
+      </div>
+      <div class="filter-row">
+        <label for="full-time-checkbox">
+          <input type="checkbox" id="full-time-checkbox"> Full Time Only
+        </label>
+        <button class="filter-button">Search</button>
+      </div>
+
+
+    </div>
+
+    <div class="filter-container">
+      
+      <div class="filter-input-container">
+        <input type="text" id="filter-input" placeholder="Filter by title">
+      </div>
+      <div class="filter-icon">
+        <img src="./assets/mobile/icon-filter.svg" alt="filter icon">
+      </div>
+      <div class="search-button-container">
+        <button id="search-button" type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 16.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5 6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5zm9.707 5.793l-4.853-4.853a8.462 8.462 0 001.186-4.34C15.04 7.56 12.333 5 9 5S2.96 7.56 2.96 11.003s2.707 6.003 6.04 6.003c1.822 0 3.484-.83 4.597-2.118l4.854 4.853a.749.749 0 101.06-1.06z"/></svg>
+        </button>
+      </div>
+      
+    </div>
+  </div>
+
+<img src="./assets/desktop/" alt="">
+
+  </div>
+
+  <div class="main">
+    <div id="job-listings"></div>
+  </div>
+
+
+
+  <button class="footer">load more</button>
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
