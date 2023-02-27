@@ -37,7 +37,7 @@ background-color: #f2f2f2;
   #company-details{
     display: flex;
     justify-content: flex-start;
-    /* align-items: center; */
+    align-items: center;
     max-width: 100vw;
     width: 51%;
     height: 140px;
@@ -45,6 +45,69 @@ background-color: #f2f2f2;
     position: absolute;
     left: 25%;
     top: 151px;
+  }
+
+  #company-site{
+    position: absolute;
+width: 17%;
+height: 48px;
+left: 75%;
+top: 50px;
+border: none;
+color: #5964E0;
+  }
+
+  #contract-time{
+    color: #6E8098;
+    font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+margin-bottom: 20px;
+  }
+
+  #posted-at {
+    margin-right: 3%;
+  }
+
+  #contract{
+    margin-left: 3%;
+  }
+
+  #apply-first{
+    background-color: #5964E0;
+    border: none;
+    color: white;
+    width: 17%;
+height: 48px;
+position: absolute;
+right: 8%;
+border-radius: 8px;
+top: 75px;
+  }
+
+  #position{
+    
+    font-family: 'Kumbh Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 35px;
+    
+    color: #19202D;
+    margin-bottom: 30px;
+  }
+
+
+  #location{
+    font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+
+color: #5964E0;
   }
 
   #logoBackground {
@@ -62,6 +125,118 @@ background-color: #f2f2f2;
     max-height: 100%;
     object-fit: contain;
   }
+
+  #company{
+    position: absolute;
+    left: 24.7%;
+    top: 42px;
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+
+
+color: #19202D;
+  }
+
+  #description{
+    height: 234px;
+    font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 26px;
+/* or 162% */
+
+
+color: #6E8098;
+  }
+
+  #requirements h3{
+    font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 25px;
+margin-bottom: 60px;
+color: #19202D;
+  }
+
+  #requirements p{
+    font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 26px;
+margin-bottom: 20px;
+
+color: #6E8098;
+  }
+
+
+  #requirements ul{
+    font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 26px;
+margin-inline: 10px;
+margin-bottom: 60px;
+color: #6E8098;
+  }
+
+
+  #role h3{
+    font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 25px;
+margin-bottom: 60px;
+color: #19202D;
+  }
+
+
+  #role p{
+    font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 26px;
+/* or 162% */
+
+
+color: #6E8098;
+  }
+
+  #role ol{
+    font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 26px;
+/* or 162% */
+
+
+color: #6E8098;
+margin-top: 20px;
+padding-left: 1.2%;
+  }
+
+
+  #website{
+    position: absolute;
+    left: 24.7%;
+    top: 80px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: red;
+    /* color: #6E8098; */
+  }
+
+
+
   
 
   #container{
@@ -69,7 +244,7 @@ background-color: #f2f2f2;
     width: 45%;
     position: absolute;
     left: 25%;
-    top: 280px;
+    top: 288px;
     background-color: white;
     margin-top: 32px;
     padding: 3%;
@@ -102,10 +277,71 @@ background-color: #f2f2f2;
 
    #footer{
     position: relative;
-    top: 1000px;
+    top: 1600px;
     width: 100vw;
     height: 96px;
     /* left: 25%; */
     background-color: white;
    }
+
+
+   #inner-footer{
+    position: relative;
+    width: 50%;
+    height: 51px;
+    left: 25%;
+    top: 22px;
+    display: flex;
+    justify-content: space-between;
+   }
+
+
+
+   #footer-position{
+    font-family: 'Kumbh Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    
+    color: #19202D;
+   }
   
+   #footer-text p{
+    font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+
+color: #6E8098;
+   }
+
+
+   #footer-button{
+    width: 141px;
+height: 48px;
+background-color: #5964E0;
+border: none;
+color: white;
+border-radius: 8px;
+   }
+
+
+   @media only screen and (max-width: 768px)  {
+    
+#company-details{
+  width: 90%;
+  left: 8%;
+}
+
+#container{
+  max-width: 100vw;
+  width: 80%;
+  position: absolute;
+    left: 10%;
+}
+
+
+
+  }

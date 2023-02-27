@@ -58,7 +58,7 @@ jobDetail.then(job => {
   role.innerHTML = `
     <h3>About the role</h3>
     <p>${job[0].role.content}</p>
-    <ul>${roleList}</ul>
+    <ol>${roleList}</ol>
   `;
   
   // Set the background color of logoBackground
