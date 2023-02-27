@@ -1,0 +1,111 @@
+/* setting theme of the code */
+
+[data-theme="dark"] .main,
+[data-theme="dark"] .body{
+  background-color: #121721;
+}
+
+
+[data-theme="dark"] .filter-input,
+[data-theme="dark"] .filter,
+[data-theme="dark"] #job-listings>div{
+  background-color: #19202D;
+  color: white;
+}
+
+
+
+[data-theme="light"] .filter-input,
+[data-theme="light"] .filter,
+[data-theme="light"] #job-listings>div {
+  background-color: white;
+  /* color: white; */
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Kumbh Sans', sans-serif;
+  }
+
+  body {
+background-color: #f2f2f2; 
+}
+  
+
+  #company-details{
+    display: flex;
+    justify-content: flex-start;
+    /* align-items: center; */
+    max-width: 100vw;
+    width: 51%;
+    height: 140px;
+    background-color: white;
+    position: absolute;
+    left: 25%;
+    top: 151px;
+  }
+
+  #logoBackground {
+    width: 20%;
+    height: 100%;
+    background-color: #f6f7f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  #company-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+
+  #container{
+    max-width: 100vw;
+    width: 45%;
+    position: absolute;
+    left: 25%;
+    top: 280px;
+    background-color: white;
+    margin-top: 32px;
+    padding: 3%;
+  }
+
+  #details-main {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  #contract-time {
+    display: flex;
+    align-items: center;
+  }
+  #contract-time div {
+    margin-right: 5px; /* optional spacing between the two child elements */
+  }
+
+
+  #requirements{
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  #requirements h2 {
+    margin-bottom: 30px;
+    color: red;
+   }
+
+   #footer{
+    position: relative;
+    top: 1000px;
+    width: 100vw;
+    height: 96px;
+    /* left: 25%; */
+    background-color: white;
+   }
+  

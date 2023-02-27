@@ -1,12 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>detail</title>
-</head>
-<body>
-    <script src="script.js"></script>
-</body>
+    <title>JOB DETAILS</title>
+    <link rel="stylesheet" href="detail.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./assets/favicon-32x32.png">
+  </head>
+  <body>
+    <header class="heading-class">
+      <h1 class="h1-jobs">devjobs</h1>
+      <div class="switch-button">
+        <img src="./assets/desktop/icon-sun.svg" alt="light theme" class="sun">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <img src="./assets/desktop/icon-moon.svg" alt="dark theme" class="moon">
+      </div>
+    </header>
+    <div id="company-details">
+      <!-- company logo and name -->
+      <div id="logoBackground">
+        <img id="company-logo">
+      </div>
+      <div id="website">
+        <p id="website-link"></p>
+      </div>
+      <div id="company"></div>
+      <button id="company-site">company site</button>
+    </div>
+    <div id="container">
+      <div id="details-main">
+        <div id="detail-left">
+          <div id="contract-time">
+            <p id="posted-at"></p> . <p id="contract"></p>
+          </div>
+          <h2 id="position"></h2>
+          <div id="company"></div>
+          <h3 id="location"></h3>
+        </div>
+        <div id="detail-right">
+          <!-- company site button -->
+          <button id="apply-first">Apply Now</button>
+        </div>
+      </div>
+      <p id="description">
+        <div id="major">
+          <!-- job details such as postedAt, contract, position, location, apply button -->
+        </div>
+        <div id="minor">
+          <!-- job description -->
+        </div>
+      </p>
+      <div id="requirements">
+        <h2>Requirements</h2>
+        <!-- list of job requirements -->
+      </div>
+      <div id="role">
+        <h2>What you will do</h2>
+        <!-- list of job responsibilities -->
+      </div>
+    </div>
+    <!-- link to the JavaScript script -->
+    <script src="theme.js"></script>
+    <script src="detail.js"></script>
+    <footer id="footer">
+      <h3 id="footer-position"></h3>
+      so digital inc
+      <button id="footer-button">Apply Now</button>
+    </footer>
+  </body>
 </html>

@@ -12,6 +12,9 @@ let currentDisplayIndex = 0;
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
+    if (!Array.isArray(data)) {
+      throw new Error('Data is not an array');
+    }
     jobListings = data;
     displayedJobListings = jobListings.slice(0, 12);
     renderJobListings();
@@ -34,11 +37,16 @@ loadMoreButton.addEventListener('click', () => {
 
 // Render the currently displayed job listings
 function renderJobListings() {
+  if (!jobListingsDiv) {
+    console.error('Job listings div not found');
+    return;
+  }
+
   jobListingsDiv.innerHTML = '';
 
   displayedJobListings.forEach((job, index) => {
     const jobDiv = document.createElement('div');
-    jobDiv.setAttribute('id', `job-${index + 1}`);
+    jobDiv.setAttribute('id', `${index + 1}`);
     jobDiv.innerHTML = `
       <div class="logo-background" style="background-color: ${job.logoBackground}">
         <a href="${job.apply}">
@@ -56,56 +64,44 @@ function renderJobListings() {
     `;
     jobDiv.addEventListener('click', () => {
       console.log(`Job ${index + 1} was clicked`);
-      window.open('./detail.html', '_blank');
+      window.open(`./detail.html?id=${index +1}`, '_blank');
       populateJobDetails(job);
     });
     jobListingsDiv.appendChild(jobDiv);
   });
 
   // Show or hide the load more button depending on whether there are more job listings to load
-  loadMoreButton.style.display = currentDisplayIndex + 12 < jobListings.length ? 'block' : 'none';
+  if (!loadMoreButton) {
+    console.error('Load more button not found');
+  } else {
+    loadMoreButton.style.display = currentDisplayIndex + 12 < jobListings.length ? 'block' : 'none';
+  }
 }
 
 // Update the displayed job listings based on the current filter settings
 function updateDisplayedJobListings() {
+  if (!Array.isArray(jobListings) || jobListings.length === 0) {
+    console.error('Job listings not found');
+    return;
+  }
+
   const titleFilter = filterTitleInput.value.toLowerCase();
   const locationFilter = filterLocationInput.value.toLowerCase();
   const fullTimeFilter = fullTimeCheckbox.checked;
   currentDisplayIndex = 0;
 
-  displayedJobListings = jobListings.filter(job => {
-    const titleMatch = job.position.toLowerCase().includes(titleFilter) || job.company.toLowerCase().includes(titleFilter) || job.expertise.toLowerCase().includes(titleFilter);
-    const locationMatch = job.location.toLowerCase().includes(locationFilter);
-    const fullTimeMatch = !fullTimeFilter || job.contract.toLowerCase() === 'full time';
+  displayedJobListings =jobListings.filter(job => {
+    const titleMatch = job.position?.toLowerCase().includes(titleFilter) || job.company?.toLowerCase().includes(titleFilter) || job.expertise?.toLowerCase().includes(titleFilter);
+    const locationMatch = job.location?.toLowerCase().includes(locationFilter);
+    const fullTimeMatch = !fullTimeFilter || job.contract?.toLowerCase() === 'full time';
     return titleMatch && locationMatch && fullTimeMatch;
-  }).slice(0, 12);
-
-  renderJobListings();
-}
-
-  
-
-
-  
-
-  
-
-  // toggling light and dark theme
-const toggleSwitch = document.querySelector('input[type="checkbox"]');
-const html = document.querySelector('html');
-
-function toggleTheme() {
-  if (toggleSwitch.checked) {
-    html.setAttribute('data-theme', 'dark');
-  } else {
-    html.setAttribute('data-theme', 'light');
-  }
-}
-
-toggleSwitch.addEventListener('change', toggleTheme);
-
-
-
-  
-
-
+    }).slice(0, 12);
+    
+    renderJobListings();
+    }
+    
+    
+    
+    
+    
+    

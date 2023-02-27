@@ -476,11 +476,35 @@ line-height: 20px;
     padding-left: 3%;
   }
 
-  
+  .filter .filter-row:nth-of-type(3) {
+    /* background-color: green; */
+    max-width: 30%;
+    width: 30%;
+    padding-left: 3%;
+    position: relative;
+    right: 3%;
+    /* padding-right: 2%; */
+}
 
   #full-time-checkbox{
-    margin-right: 12px;
+    margin-right: 1px;
   }
+
+  .filter-button {
+    padding: 5px 10px;
+    background-color: #5964E0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    max-width: 1440px;
+    width: 45%;
+    height: 48px;
+    /* margin-left: 2px; */
+    position: relative;
+    right: 10%;
+}
 
 /* thumbnails */
 .main{
@@ -555,6 +579,7 @@ left: 40%;
   border-radius: 8px;
   top: 96px;
   left: 6.6%;
+  background-color: white;
 
 }
 
