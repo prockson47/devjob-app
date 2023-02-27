@@ -1,29 +1,38 @@
+// Extract the last parameter from the URL
 const pageID = document.URL.substring(document.URL.lastIndexOf('=') + 1);
 
+// Initialize an empty array to hold job listings
 let jobListings = [];
 
 // Fetch data from the JSON file and initialize the job listings
-const dataFetch = fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
+const fetchData = async () => {
+  try {
+    const response = await fetch('data.json');
+    const data = await response.json();
+    // Throw an error if the data is not an array
     if (!Array.isArray(data)) {
       throw new Error('Data is not an array');
     }
+    // Update the jobListings array with the fetched data
     jobListings = data;
-    return data;
-  })
-  .catch(error => {
+  } catch (error) {
     console.error('Error fetching data:', error);
-  });
+  }
+};
 
-const jobDetail = dataFetch.then(data => {
-  const favJob = data.filter(jobData => {
-    return jobData.id === parseInt(pageID);
-  });
-  return favJob;
-});
+// Find the job object that matches the pageID
+const findJobByID = async (pageID) => {
+  try {
+    const job = await jobListings.find(jobData => jobData.id === parseInt(pageID));
+    return job;
+  } catch (error) {
+    console.error('Error finding job by ID:', error);
+  }
+};
 
-jobDetail.then(job => {
+// Display job details on the webpage
+const displayJobDetails = (job) => {
+  // Get references to HTML elements
   const companyLogo = document.getElementById('company-logo');
   const company = document.getElementById('company');
   const position = document.getElementById('position');
@@ -37,36 +46,43 @@ jobDetail.then(job => {
   const website = document.getElementById('website');
   const footerPosition = document.getElementById('footer-position');
 
-  // Populate the elements with the job details
-  companyLogo.src = `./assets/logos/${job[0].company}.svg`;
-  companyLogo.alt = `${job[0].company} logo`;
-  company.innerHTML = job[0].company;
-  position.innerHTML = job[0].position;
-  postedAt.innerHTML = job[0].postedAt;
-  contract.innerHTML = job[0].contract;
-  location.innerHTML = job[0].location;
-  description.innerHTML = job[0].description;
-  website.innerHTML = `<a href="${job[0].website}" target="_blank">${job[0].website}</a>`;  
-  const requirementsList = job[0].requirements.items.map(item => `<li>${item}</li>`).join('');
+  // Populate the HTML elements with job details
+  companyLogo.src = `./assets/logos/${job.company}.svg`;
+  companyLogo.alt = `${job.company} logo`;
+  company.textContent = job.company;
+  position.textContent = job.position;
+  postedAt.textContent = job.postedAt;
+  contract.textContent = job.contract;
+  location.textContent = job.location;
+  description.innerHTML = job.description;
+  website.innerHTML = `<a href="${job.website}" target="_blank">${job.website}</a>`;
+  
+  // Populate the requirements section with an unordered list
+  const requirementsList = job.requirements.items.map(item => `<li>${item}</li>`).join('');
   requirements.innerHTML = `
     <h3>Requirements</h3>
-    <p>${job[0].requirements.content}</p>
+    <p>${job.requirements.content}</p>
     <ul>${requirementsList}</ul>
   `;
   
-  const roleList = job[0].role.items.map(item => `<li>${item}</li>`).join('');
+  // Populate the role section with an ordered list
+  const roleList = job.role.items.map(item => `<li>${item}</li>`).join('');
   role.innerHTML = `
     <h3>About the role</h3>
-    <p>${job[0].role.content}</p>
+    <p>${job.role.content}</p>
     <ol>${roleList}</ol>
   `;
   
-  // Set the background color of logoBackground
-  logoBackground.style.backgroundColor = job[0].logoBackground;
+  // Set the background color of the logoBackground element
+  logoBackground.style.backgroundColor = job.logoBackground;
 
-  // Populate footer position
-  footerPosition.innerHTML = job[0].position;
-})
-.catch(error => {
-  console.error('Error fetching job detail:', error);
+  // Set the footer position to the job position
+  footerPosition.textContent = job.position;
+};
+
+// Fetch the job data, find the matching job, and display the details
+fetchData().then(() => {
+  findJobByID(pageID).then(job => {
+    displayJobDetails(job);
+  });
 });
