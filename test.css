@@ -1,41 +1,33 @@
+const filterIcon = document.getElementById("filter-icon");
+const filterModal = document.getElementById("filter-modal");
+const closeBtn = document.getElementsByClassName("close")[0];
+const filterTitleInput1 = document.querySelector('#filter-input[placeholder="Filter by title"]');
+const filterLocationInput1 = document.getElementById('modal-input');
+const fullTimeCheckbox1 = document.getElementById('pop-check');
+
+
+const titleFilter = filterTitleInput1.value.toLowerCase();
+  const locationFilter = filterLocationInput1.value.toLowerCase();
+  const fullTimeFilter = fullTimeCheckbox1.checked;
+
+// Listen for filter changes and update the displayed job listings
+filterTitleInput1.addEventListener('input', updateDisplayedJobListings);
+filterLocationInput1.addEventListener('input', updateDisplayedJobListings);
+fullTimeCheckbox1.addEventListener('change', updateDisplayedJobListings);
+
+
+    
 
 
 
-.filter {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .filter-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 10px;
-  }
-  
-  .filter-icon {
-    margin-right: 10px;
-  }
-  
-  .filter-input {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .filter-button {
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .filter-button:hover {
-    background-color: #3e8e41;
-  }
-  
+filterIcon.onclick = function () {
+  filterModal.style.display = "block";
+};
+
+closeBtn.onclick = function () {
+  filterModal.style.display = "none";
+};
+
+popSearchBtn.onclick = function () {
+  filterModal.style.display = "none";
+};

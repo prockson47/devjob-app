@@ -17,46 +17,58 @@
 }
 
 .modal-content {
-  background-color: white;
+  background-color: #f2f2f2;
   margin: auto;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 10px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   max-width: 370px;
+  width: 327px;
+  height: 217px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+
+
+
+#modal-first{
+  background-color: white;
+  height: 73px;
+  border-radius: 8px;
 }
-
-.modal-header h2 {
-  margin: 0;
-}
-
-
-.modal-body {
+#modal-first img {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  margin-left: 6%;
   margin-top: 20px;
 }
+
+#modal-first input {
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+  border: none;
+}
+
 
 .modal-body img {
   display: block;
   margin: 0 auto;
 }
 
-.filter-input {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+
+
+#modal-second{
+  background-color: white;
+  height: 150px;
+  margin-top: 1px;
+  border-radius: 8px;
 }
 
 .filter-label {
@@ -80,14 +92,31 @@
   color: white;
   font-size: 16px;
   cursor: pointer;
+  position: relative;
+  top: -10px;
 }
 
-.filter-icon {
-  cursor: pointer;
+
+#pop-check{
+  position: relative;
+  /* color: red; */
+  left: -2%;  
+  /* top: 10px; */
 }
 
-#filter-icon:hover {
-  opacity: 0.7;
+label[for="pop-check"] {
+/* color: red;  */
+position: relative;
+left: 10%;
+font-weight: 900;
+top: 20px;
+}
+
+#pop-search{
+  width: 85%;
+  position: relative;
+  left: 0%;
+  top: 40px;
 }
 
 @media only screen and (max-width: 400px) {
@@ -102,7 +131,7 @@
   .filter-label input[type="checkbox"] {
     margin-right: 0;
     margin-bottom: 10px;
-  }
+      }
   
   .filter-label input[type="checkbox"] + label {
     display: inline-block;
@@ -122,8 +151,19 @@
 }
 
 
+[data-theme="dark"] .filter .filter-row:nth-of-type(1),
+[data-theme="dark"] .filter .filter-row:nth-of-type(3),
+[data-theme="dark"] .filter .filter-row:nth-of-type(2){
+  background-color: #19202D;
+}
+
+[data-theme="dark"] #filter-input,
+[data-theme="dark"] .filter-container,
+[data-theme="dark"] #modal-input,
+[data-theme="dark"] #modal-first,
+[data-theme="dark"] #modal-second,
 [data-theme="dark"] .filter-input,
-[data-theme="dark"] .filter,
+
 [data-theme="dark"] #job-listings>div{
   background-color: #19202D;
   color: white;
@@ -132,7 +172,7 @@
 
 
 [data-theme="light"] .filter-input,
-[data-theme="light"] .filter,
+
 [data-theme="light"] #job-listings>div {
   background-color: white;
   /* color: white; */
@@ -252,11 +292,7 @@ height: 14px;
 
 }
 
-.slider:before:active {
-  /* styles for the slider when hovered over */
-  /* background-color: #939BF4; */
-  background-color: red;
-}
+
 
 input:checked + .slider {
   background-color: white;
@@ -291,7 +327,7 @@ input:checked + .slider:before {
   height: 80px;
   left: 16%;
   top: 165px;
-  background-color: white;
+  background-color: #6E8098;
   border-radius: 6px;
   display: flex;
     flex-direction: row;
@@ -328,6 +364,7 @@ input:checked + .slider:before {
 
 
   .filter .filter-row:nth-of-type(1) {
+    background-color: white;
     max-width: 50%;
     width: 37%;
     
@@ -341,7 +378,7 @@ input:checked + .slider:before {
   
 
   .filter .filter-row:nth-of-type(2) {
-    /* background-color: yellow; */
+    background-color: white;
     max-width: 30%;
     width: 30%;
     padding-left: 3%;
@@ -353,7 +390,7 @@ input:checked + .slider:before {
   }
 
   .filter .filter-row:nth-of-type(3) {
-    /* background-color: green; */
+    background-color: white;
     max-width: 30%;
     width: 30%;
     padding-left: 3%;
@@ -363,6 +400,15 @@ input:checked + .slider:before {
   width: 24px;
   height: 24px;
   margin-right: 18px;
+  position: relative;
+  /* left: 10%; */
+  top: 6px;
+}
+
+label[for="full-time-checkbox"] {
+position: relative;
+top: -5px;
+/* left: 30%; */
 }
 
   .filter-button {
@@ -767,6 +813,6 @@ left: 30%;
 }
 
 
-}}
+}
 
 

@@ -18,9 +18,9 @@
 <body class="body">
   <header class="heading-class">
     <a href="index.html">
-    <h1 class="h1-jobs">devjobs
-    </h1>
-  </a>
+      <h1 class="h1-jobs">devjobs
+      </h1>
+    </a>
     <div class="switch-button">
       <img src="./assets/desktop/icon-sun.svg" alt="light theme" class="sun">
       <label class="switch">
@@ -56,7 +56,7 @@
     </div>
 
     <div class="filter-container">
-      
+
       <div class="filter-input-container">
         <input type="text" id="filter-input" placeholder="Filter by title">
       </div>
@@ -65,14 +65,38 @@
       </div>
       <div class="search-button-container">
         <button id="search-button" type="submit">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 16.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5 6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5zm9.707 5.793l-4.853-4.853a8.462 8.462 0 001.186-4.34C15.04 7.56 12.333 5 9 5S2.96 7.56 2.96 11.003s2.707 6.003 6.04 6.003c1.822 0 3.484-.83 4.597-2.118l4.854 4.853a.749.749 0 101.06-1.06z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M9 16.5c-3.584 0-6.5-2.916-6.5-6.5s2.916-6.5 6.5-6.5 6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5zm9.707 5.793l-4.853-4.853a8.462 8.462 0 001.186-4.34C15.04 7.56 12.333 5 9 5S2.96 7.56 2.96 11.003s2.707 6.003 6.04 6.003c1.822 0 3.484-.83 4.597-2.118l4.854 4.853a.749.749 0 101.06-1.06z" />
+          </svg>
         </button>
       </div>
-      
+
+      <!-- filter modal -->
+      <div class="modal" id="filter-modal">
+        <div class="modal-content">
+          
+          <div class="modal-body">
+            <div id="modal-first">
+              <img src="./assets/desktop/icon-location.svg" alt="Location icon">
+              <input type="text" id="modal-input" placeholder="Filter by location...">
+            
+            </div>
+            <div id="modal-second">
+              <label for="pop-check">
+                <input type="checkbox" id="pop-check"> Full Time Only
+              </label>
+              <button class="filter-button" id="pop-search">Search</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-<img src="./assets/desktop/" alt="">
+  <img src="./assets/desktop/" alt="">
 
   </div>
 
@@ -84,26 +108,10 @@
 
   <button class="footer">load more</button>
 
-<!-- filter modal -->
-<div class="modal" id="filter-modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2>Filter by Location</h2>
-      <span class="close">&times;</span>
-    </div>
-    <div class="modal-body">
-      <img src="./assets/desktop/icon-location.svg" alt="Location icon">
-      <input type="text" class="filter-input" placeholder="Filter by location">
-      <label for="pop-check">
-        <input type="checkbox" id="pop-check"> Full Time Only
-      </label>
-      <button class="filter-button" id="pop-search">Search</button>
-    </div>
-  </div>
-</div>
 
 
-<script src="./filter.js"></script>
+
+  <script src="./filter.js"></script>
   <script src="script.js"></script>
   <script src="theme.js"></script>
 </body>

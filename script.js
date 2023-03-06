@@ -100,24 +100,7 @@ function updateDisplayedJobListings() {
     renderJobListings();
     }
     
-    const filterIcon = document.getElementById("filter-icon");
-const filterModal = document.getElementById("filter-modal");
-const closeBtn = document.getElementsByClassName("close")[0];
-
-filterIcon.onclick = function () {
-  filterModal.style.display = "block";
-};
-
-closeBtn.onclick = function () {
-  filterModal.style.display = "none";
-};
-
-window.onclick = function (event) {
-  if (event.target == filterModal) {
-    filterModal.style.display = "none";
-  }
-};
-
+    
     
     
     
