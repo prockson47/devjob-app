@@ -64,7 +64,7 @@ function renderJobListings() {
     `;
     jobDiv.addEventListener('click', () => {
       console.log(`Job ${index + 1} was clicked`);
-      window.open(`./detail.html?id=${index +1}`, '_blank');
+      window.open(`./detail.html?id=${index +1}`, '_self');
       populateJobDetails(job);
     });
     jobListingsDiv.appendChild(jobDiv);
