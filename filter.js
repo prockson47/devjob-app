@@ -1,50 +1,60 @@
-const filterIcon = document.getElementById("filter-icon");
-const filterModal = document.getElementById("filter-modal");
-const searchBtns = document.querySelectorAll(".pop-search");
-const job_listings = document.querySelectorAll(".job-listing");
+// // Define the filterJobs function
+// function filterJobs(jobListings, userInput, fullTimeChecked) {
+//   const filteredJobs = jobListings.filter(function (job) {
+//     const jobTitle = job.title.toLowerCase();
+//     const jobCompany = job.company.toLowerCase();
+//     const jobLocation = job.location.toLowerCase();
+//     const jobType = job.type.toLowerCase();
+
+//     // If fullTimeChecked is true, only return jobs with type "Full Time"
+//     if (fullTimeChecked && jobType !== "full time") {
+//       return false;
+//     }
+
+//     // Return jobs that match the user input
+//     return (
+//       jobTitle.includes(userInput) ||
+//       jobCompany.includes(userInput) ||
+//       jobLocation.includes(userInput)
+//     );
+//   });
+
+//   return filteredJobs;
+// }
 
 // Add event listener to the filter icon to toggle the filter modal
+const filterIcon = document.getElementById("filter-icon");
+const filterModal = document.getElementById("filter-modal");
 filterIcon.addEventListener("click", function () {
   filterModal.style.display = "block";
 });
 
-// Add event listener to the search buttons to filter job listings
-searchBtns.forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    // Get the user input for location filtering
-    const locationFilterInput = document.getElementById("modal-input");
-    const locationFilter = locationFilterInput ? locationFilterInput.value.toLowerCase() : "";
+// // Add event listener to the search button to filter job listings
+// const searchBtn = document.getElementById("pop-search");
+// searchBtn.addEventListener("click", function () {
+//   // Get the user input from the filter modal
+//   const userInput = document.getElementById("modal-input").value.toLowerCase();
+//   const fullTimeCheckbox = document.getElementById("pop-check");
 
-    // Get the value of the full time only checkbox
-    const fullTimeOnlyCheckbox = document.getElementById("pop-check");
-    const fullTimeOnly = fullTimeOnlyCheckbox ? fullTimeOnlyCheckbox.checked : false;
+//   // Call the filterJobs function with the jobs array and user input/full-time checkbox values
+//   const filteredJobs = filterJobs(jobListings, userInput, fullTimeCheckbox.checked);
 
-    try {
-      // Loop over each job listing element
-      job_listings.forEach(function (jobListing) {
-        // Get the job location and job type from the data attributes
-        const jobLocation = jobListing.getAttribute("data-location").toLowerCase();
-        const jobType = jobListing.getAttribute("data-type").toLowerCase();
+//   // Render the filtered job listings
+//   renderJobs(filteredJobs);
 
-        // Check if the job location matches the user input
-        const locationMatch = jobLocation.includes(locationFilter);
+//   // Close the filter modal
+//   filterModal.style.display = "none";
+// });
 
-        // Check if the job is full time if the user selected that option
-        const typeMatch = !fullTimeOnly || (fullTimeOnly && jobType === "full time");
-
-        // If the job listing matches the user's search criteria, display it
-        if (locationMatch && typeMatch) {
-          jobListing.style.display = "block";
-        } else {
-          jobListing.style.display = "none";
-        }
-      });
-    } catch (error) {
-      console.error(error);
-      alert("An error occurred while filtering job listings.");
-    }
-
-    // Close the filter modal
-    filterModal.style.display = "none";
-  });
+// Add event listener to the search button to close the filter modal
+const closeBtn = document.getElementById("pop-search");
+closeBtn.addEventListener("click", function () {
+  filterModal.style.display = "none";
 });
+
+// // Add event listener to the window object to close the filter modal when the user clicks outside of it
+// window.addEventListener("click", function (event) {
+//   if (event.target === filterModal) {
+//     filterModal.style.display = "none";
+//   }
+// });
