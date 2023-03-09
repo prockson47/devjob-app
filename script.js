@@ -3,6 +3,8 @@ const filterTitleInput = document.querySelector('.filter-input[placeholder="Filt
 const filterLocationInput = document.querySelector('.filter-input[placeholder="Filter by location"]');
 const fullTimeCheckbox = document.getElementById('full-time-checkbox');
 const TitleInput = document.getElementById('filter-input');
+const filterLocationInput2 = document.getElementById('modal-input');
+const fullTimeCheckbox2 = document.getElementById('pop-check');
 const loadMoreButton = document.querySelector('.footer');
 
 
@@ -32,6 +34,9 @@ filterTitleInput.addEventListener('input', updateDisplayedJobListings);
 filterLocationInput.addEventListener('input', updateDisplayedJobListings);
 fullTimeCheckbox.addEventListener('change', updateDisplayedJobListings);
 TitleInput.addEventListener('change', updateDisplayedJobListings);
+filterLocationInput2.addEventListener('input', updateDisplayedJobListings);
+fullTimeCheckbox2.addEventListener('change', updateDisplayedJobListings);
+
 
 // Listen for load more button click and render the next set of job listings
 loadMoreButton.addEventListener('click', () => {
@@ -94,6 +99,9 @@ function updateDisplayedJobListings() {
   const locationFilter = filterLocationInput.value.toLowerCase();
   const fullTimeFilter = fullTimeCheckbox.checked;
   const titleFilter2 = TitleInput.value.toLowerCase();
+    const locationFilter2 = filterLocationInput2.value.toLowerCase();
+  const fullTimeFilter2 = fullTimeCheckbox2.checked;
+
   currentDisplayIndex = 0;
 
   displayedJobListings =jobListings.filter(job => {
@@ -101,8 +109,10 @@ function updateDisplayedJobListings() {
     const locationMatch = job.location?.toLowerCase().includes(locationFilter);
     const fullTimeMatch = !fullTimeFilter || job.contract?.toLowerCase() === 'full time';
     const titleMatch2 = job.position?.toLowerCase().includes(titleFilter2) || job.company?.toLowerCase().includes(titleFilter2) || job.expertise?.toLowerCase().includes(titleFilter2);
+    const locationMatch2 = job.location?.toLowerCase().includes(locationFilter2);
+    const fullTimeMatch2 = !fullTimeFilter2 || job.contract?.toLowerCase() === 'full time';
 
-    return titleMatch && locationMatch && fullTimeMatch && titleMatch2;
+    return titleMatch && locationMatch && fullTimeMatch && titleMatch2 && locationMatch2 && fullTimeMatch2;
     }).slice(0, 12);
     
     renderJobListings();
