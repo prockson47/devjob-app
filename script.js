@@ -2,7 +2,11 @@ const jobListingsDiv = document.getElementById('job-listings');
 const filterTitleInput = document.querySelector('.filter-input[placeholder="Filter by title, companies, expertise..."]');
 const filterLocationInput = document.querySelector('.filter-input[placeholder="Filter by location"]');
 const fullTimeCheckbox = document.getElementById('full-time-checkbox');
+const TitleInput = document.getElementById('filter-input');
 const loadMoreButton = document.querySelector('.footer');
+
+
+
 
 let jobListings = [];
 let displayedJobListings = [];
@@ -27,6 +31,7 @@ fetch('data.json')
 filterTitleInput.addEventListener('input', updateDisplayedJobListings);
 filterLocationInput.addEventListener('input', updateDisplayedJobListings);
 fullTimeCheckbox.addEventListener('change', updateDisplayedJobListings);
+TitleInput.addEventListener('change', updateDisplayedJobListings);
 
 // Listen for load more button click and render the next set of job listings
 loadMoreButton.addEventListener('click', () => {
@@ -88,13 +93,16 @@ function updateDisplayedJobListings() {
   const titleFilter = filterTitleInput.value.toLowerCase();
   const locationFilter = filterLocationInput.value.toLowerCase();
   const fullTimeFilter = fullTimeCheckbox.checked;
+  const titleFilter2 = TitleInput.value.toLowerCase();
   currentDisplayIndex = 0;
 
   displayedJobListings =jobListings.filter(job => {
     const titleMatch = job.position?.toLowerCase().includes(titleFilter) || job.company?.toLowerCase().includes(titleFilter) || job.expertise?.toLowerCase().includes(titleFilter);
     const locationMatch = job.location?.toLowerCase().includes(locationFilter);
     const fullTimeMatch = !fullTimeFilter || job.contract?.toLowerCase() === 'full time';
-    return titleMatch && locationMatch && fullTimeMatch;
+    const titleMatch2 = job.position?.toLowerCase().includes(titleFilter2) || job.company?.toLowerCase().includes(titleFilter2) || job.expertise?.toLowerCase().includes(titleFilter2);
+
+    return titleMatch && locationMatch && fullTimeMatch && titleMatch2;
     }).slice(0, 12);
     
     renderJobListings();
